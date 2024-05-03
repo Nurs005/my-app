@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --blue-glow-color: rgba(59, 172, 237, 0.548);
+  /* Цвет синего свечения */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,18 +18,38 @@
   }
 }
 
-body {
+html {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  height: 100%;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+body {
+  margin: 0;
+  height: 100%;
+  position: relative;
+  /* Необходимо для размытого эффекта */
+  overflow: hidden;
+  /* Прячем выходящие за пределы body элементы */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  /* Измените это значение, чтобы уменьшить высоту свечения */
+  left: 800px;
+  width: 300px;
+  height: 200px;
+  /* Увеличьте это значение, чтобы расширить высоту свечения */
+  background: radial-gradient(circle, var(--blue-glow-color), transparent);
+  /* Создание радиального градиента для эффекта свечения */
+  pointer-events: none;
+  /* Позволяет элементу игнорировать события мыши, чтобы они не мешали взаимодействию с другими элементами на странице */
+  z-index: -1;
+  /* Помещаем элемент ниже основного контента */
+  filter: blur(30px);
+  /* Применяем размытие */
 }

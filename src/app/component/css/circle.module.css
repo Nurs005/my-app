@@ -1,0 +1,28 @@
+.circleContainer {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 10px;
+    left: 700px;
+}
+
+.circleBg {
+    fill: none;
+    stroke: #000;
+    stroke-width: 10;
+    stroke-linecap: round;
+}
+
+.circleBgUnfilled {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 10;
+    stroke-linecap: round;
+}
+
+.value {
+    fill: #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-anchor: middle;
+}
