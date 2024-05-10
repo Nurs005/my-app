@@ -14,6 +14,7 @@ const WichProtocol: React.FC = () => {
         return {
             display: display,
             textAlign: 'center',
+            color: 'black'
         }
     }
     const { raiting } = useRaiting()

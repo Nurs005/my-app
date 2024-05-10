@@ -4,7 +4,8 @@ const MY_STYLE: React.CSSProperties = {
     position: "relative",
     top: "20px",
     fontSize: "50px",
-    textAlign: "center"
+    textAlign: "center",
+    color: 'black'
 }
 
 const Header = () => {

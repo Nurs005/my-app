@@ -17,7 +17,8 @@ const INPUT_STYLE: React.CSSProperties = {
     border: "2px solid black",
     paddingLeft: "5px",
     height: "40px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    color: 'black',
 }
 
 const BUTTON_STYLE: React.CSSProperties = {
@@ -28,12 +29,13 @@ const BUTTON_STYLE: React.CSSProperties = {
     marginLeft: '5px',
     height: '40px',
     position: 'relative',
-    top: '50px'
+    top: '50px',
+    color: 'black'
 }
 
 const InputAddress = () => {
     const [address, setAddress] = React.useState<string>("");
-    const { raiting, setRaiting } = useRaiting()
+    const { setRaiting } = useRaiting()
     const handleClick = async () => {
         const MYHEADER = new Headers();
         MYHEADER.append("Content-Type", "application/json")
@@ -47,7 +49,7 @@ const InputAddress = () => {
             body: graphql,
             redirect: "follow"
         };
-        const response = await fetch("http://195.49.210.226:8081/query", requestOptions)
+        const response = await fetch("http://localhost:8081/query", requestOptions)
         const data = await response.json()
         setRaiting(Number(data.data.accounts[0].raiting));
         console.log(Number(data.data.accounts[0].raiting))

@@ -12,7 +12,8 @@ const CircleSVG: React.FC = () => {
 
     function style() {
         return {
-            display: displayStyle
+            display: displayStyle,
+
         }
     }
 
