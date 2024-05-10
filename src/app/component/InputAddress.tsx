@@ -49,7 +49,7 @@ const InputAddress = () => {
             body: graphql,
             redirect: "follow"
         };
-        const response = await fetch("http://localhost:8081/query", requestOptions)
+        const response = await fetch("http://195.49.210.226:8081/query", requestOptions)
         const data = await response.json()
         setRaiting(Number(data.data.accounts[0].raiting));
         console.log(Number(data.data.accounts[0].raiting))
